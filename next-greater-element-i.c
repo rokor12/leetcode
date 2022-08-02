@@ -7,7 +7,7 @@ int* nextGreaterElement(int* nums1, int nums1Size, int* nums2, int nums2Size, in
 int findInArray(int *arr, int arrSize, int num);
 
 int main(){
-    int nums1Size=3;
+    int nums1Size=2;
     int nums2Size=4;
     
     int *nums1 = (int*)malloc(nums1Size*sizeof(int));
@@ -15,7 +15,7 @@ int main(){
     int *returnSize = malloc(sizeof(int));
     *returnSize =0;
 
-    int arr1[3] = {4,1,2}, arr2[4] = {1,3,4,2};
+    int arr1[2] = {2,4}, arr2[4] = {1,2,3,4};
     
     memcpy(nums1,arr1,nums1Size*sizeof(int));
     memcpy(nums2,arr2,nums2Size*sizeof(int));
