@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/next-greater-element-i/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
