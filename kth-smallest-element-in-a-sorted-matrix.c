@@ -5,7 +5,7 @@
 #include <math.h>
 
 int compare(int *a, int *b);
-int kthSamllest(int **matrix, int matrixSize, int *matrixColSize, int k);
+int kthSmallest(int **matrix, int matrixSize, int *matrixColSize, int k);
 int* newPointer(int* arr, int size);
 
 int main(){
@@ -43,7 +43,7 @@ int compare(int *a, int *b){
     return *a - *b;
 }
 
-int kthSamllest(int **matrix, int matrixSize, int *matrixColSize, int k){
+int kthSmallest(int **matrix, int matrixSize, int *matrixColSize, int k){
     int size = matrixSize * matrixColSize[0];
     int *arr = (int*)malloc(size*sizeof(int));
     int i,j;
