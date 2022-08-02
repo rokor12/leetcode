@@ -24,7 +24,7 @@ int main(){
 }
 
 int compare(int* a, int *b){
-    return *a - *b;
+    return *a%2;
 }
 
 int* sortArrayByParityII(int* nums, int numsSize, int* returnSize){
