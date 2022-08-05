@@ -41,7 +41,7 @@ int* intersection(int **nums, int numsSize, int *numsColSize, int *returnSize){
             }
             if(c == numsSize){
                 size++;
-                ans = realloc(ans,size);
+                ans = realloc(ans,size*sizeof(int));
                 ans[size-1] = aux;
             }
         }
