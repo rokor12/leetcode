@@ -26,6 +26,10 @@ int main(){
     return 0;
 }
 
+int compare(int *a, int *b){
+    return *a - *b;
+}
+
 int* intersection(int **nums, int numsSize, int *numsColSize, int *returnSize){
     int *ans = (int*)malloc(sizeof(int));
     int i,j,k,c,size=0;
@@ -47,5 +51,6 @@ int* intersection(int **nums, int numsSize, int *numsColSize, int *returnSize){
         }
     }
     *returnSize = size;
+    qsort(ans,size,sizeof(int),&compare);
     return ans;
 }
