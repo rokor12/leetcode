@@ -34,6 +34,7 @@ int* intersection(int **nums, int numsSize, int *numsColSize, int *returnSize){
     if(numsSize==1){
         *returnSize = numsColSize[0];
         qsort(nums[0], numsColSize[0], sizeof(int), &compare);
+        return nums[0];
     }
 
     int *ans = (int*)malloc(sizeof(int));
