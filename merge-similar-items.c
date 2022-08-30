@@ -16,12 +16,14 @@ int** mergeSimilarItems(int** items1, int items1Size, int* items1ColSize, int** 
     int ** ans = (int**)malloc(items1Size*sizeof(int*));
     int ansSize = items1Size;
     int *aux;
+    returnColumnSizes = (int**)malloc(items1Size*sizeof(int*));
     bool flag;
     for(i=0;i<items1Size;i++){//cpy items1 to ans
         aux = malloc(2*sizeof(int));
         memcpy(aux,items1[i],2*sizeof(int));
         ans[i]=aux;
-        *(*returnColumnSizes + i) = 2;
+        returnColumnSizes[i] = (int)malloc(sizeof(int));
+        memcpy(returnColumnSizes[i],2,sizeof(int));
     }
     for(i=0;i<items2Size;i++){
         flag = true;
@@ -35,7 +37,8 @@ int** mergeSimilarItems(int** items1, int items1Size, int* items1ColSize, int** 
             ansSize++;
             ans = realloc(ans,ansSize*sizeof(int*));
             memcpy(ans[ansSize-1],items2[i],2*sizeof(int));
-            *(*returnColumnSizes + ansSize-1) = 2;
+            returnColumnSizes[ansSize-1] = (int)malloc(sizeof(int));
+            memcpy(returnColumnSizes[ansSize - 1],2,sizeof(int));
         }
     }
     return ans;
