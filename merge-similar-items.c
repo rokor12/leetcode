@@ -4,6 +4,7 @@
 typedef enum { false, true } bool;
 
 int** mergeSimilarItems(int** items1, int items1Size, int* items1ColSize, int** items2, int items2Size, int* items2ColSize, int* returnSize, int** returnColumnSizes);
+int compare(int **a, int **b);
 
 int main(){
     //items1 = [[1,1],[4,5],[3,8]], items2 = [[3,1],[1,5]]
@@ -11,9 +12,8 @@ int main(){
     return 0;
 }
 
-int compare(int *a, int *b){
-    return *a[0] - *b[0];
-    qsort(void *base, size_t nmemb, size_t size, int (*comparator)(const void *, const void *));
+int compare(int **a, int **b){
+    return *(a[0]) - *(b[0]);
 }
 
 int** mergeSimilarItems(int** items1, int items1Size, int* items1ColSize, int** items2, int items2Size, int* items2ColSize, int* returnSize, int** returnColumnSizes){
@@ -37,7 +37,7 @@ int** mergeSimilarItems(int** items1, int items1Size, int* items1ColSize, int** 
                 ans[j][1]+=items2[i][1];
             }
         }
-        if(flag){
+        if(flag){// item2[i] is not in ans
             ansSize++;
             ans = realloc(ans,ansSize*sizeof(int*));
             aux = malloc(2*sizeof(int));
@@ -48,7 +48,7 @@ int** mergeSimilarItems(int** items1, int items1Size, int* items1ColSize, int** 
             
         }
     }
-    qsort(ans,ansSize,sizeof(int*),compare);
+    qsort(ans,ansSize,sizeof(int*),compare); //sort
     *returnSize = ansSize;
     *returnColumnSizes = col;
     return ans;
