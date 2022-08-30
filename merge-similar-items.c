@@ -11,6 +11,11 @@ int main(){
     return 0;
 }
 
+int compare(int *a, int *b){
+    return *a[0] - *b[0];
+    qsort(void *base, size_t nmemb, size_t size, int (*comparator)(const void *, const void *));
+}
+
 int** mergeSimilarItems(int** items1, int items1Size, int* items1ColSize, int** items2, int items2Size, int* items2ColSize, int* returnSize, int** returnColumnSizes){
     int i,j;
     int ** ans = (int**)malloc(items1Size*sizeof(int*));
@@ -35,11 +40,15 @@ int** mergeSimilarItems(int** items1, int items1Size, int* items1ColSize, int** 
         if(flag){
             ansSize++;
             ans = realloc(ans,ansSize*sizeof(int*));
+            aux = malloc(2*sizeof(int));
+            ans[ansSize-1] = aux;
             memcpy(ans[ansSize-1],items2[i],2*sizeof(int));
             col = realloc(col,ansSize*sizeof(int));
             col[ansSize-1] = 2;
+            
         }
     }
+    qsort(ans,ansSize,sizeof(int*),compare);
     *returnSize = ansSize;
     *returnColumnSizes = col;
     return ans;
