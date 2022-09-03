@@ -24,7 +24,7 @@ int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* ret
     int *ans = (int*)malloc(0);
     int ansSize = 0;
     for(int i=0;i<nums1Size;i++){
-        if(isInArr(nums2;nums2Size,nums1[i]) && !(isInArr(ans,ansSize,nums1[i]))){
+        if(isInArr(nums2,nums2Size,nums1[i]) && !(isInArr(ans,ansSize,nums1[i]))){
             ansSize++;
             ans = realloc(ans,ansSize*sizeof(int));
             ans[ansSize-1] = nums1[i];
