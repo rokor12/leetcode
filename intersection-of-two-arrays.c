@@ -29,6 +29,7 @@ int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* ret
             ans = realloc(ans,ansSize*sizeof(int));
             ans[ansSize-1] = nums1[i];
         }
+    }
     *returnSize = ansSize;
     return ans;
 }
