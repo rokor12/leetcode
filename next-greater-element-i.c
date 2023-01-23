@@ -10,24 +10,24 @@ int findInArray(int *arr, int arrSize, int num);
 int main(){
     int nums1Size=2;
     int nums2Size=4;
-    
+
     int *nums1 = (int*)malloc(nums1Size*sizeof(int));
     int *nums2 = (int*)malloc(nums2Size*sizeof(int));
     int *returnSize = malloc(sizeof(int));
     *returnSize =0;
 
     int arr1[2] = {2,4}, arr2[4] = {1,2,3,4};
-    
+
     memcpy(nums1,arr1,nums1Size*sizeof(int));
     memcpy(nums2,arr2,nums2Size*sizeof(int));
 
     int *ans;
     ans = nextGreaterElement(nums1, nums1Size, nums2, nums2Size, returnSize);
-    
+
     for(int i=0;i<*returnSize;i++){
         printf("%d ",ans[i]);
     }
-    
+
     printf("\nEND\n");
     return 0;
 }
